@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#04101f">
+<title>В ремонте — сервисный центр в Ульяновске</title>
+<meta name="description" content="Сервисный центр «В ремонте» в Ульяновске. Ремонт телефонов, ноутбуков, планшетов, компьютеров и телевизоров.">
+<link rel="icon" href="assets/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#04101f;
+  --bg-2:#071a30;
+  --blue:#2ea3ff;
+  --blue-2:#168cff;
+  --cyan:#57c8ff;
+  --text:#e8f3fb;
+  --muted:#8fabbe;
+  --line:rgba(90,170,235,.22);
+  --line-strong:rgba(90,170,235,.45);
+  --radius:14px;
+  --radius-lg:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0;
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:#04101f;
+  line-height:1.5;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/* Технологичный фон: градиент + свечения */
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(900px 600px at 15% 0%, rgba(46,163,255,.18), transparent 60%),
+    radial-gradient(800px 600px at 100% 100%, rgba(23,140,255,.15), transparent 60%),
+    linear-gradient(160deg,#04101f 0%,#071a30 45%,#04101f 100%);
+}
+/* Печатная плата — дорожки */
+body::after{
+  content:"";
+  position:fixed;inset:0;z-index:-1;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%2357c8ff' stroke-width='0.6' stroke-linecap='round'%3E%3Cpath d='M20 20 L20 60 L60 60 L60 100'/%3E%3Cpath d='M100 20 L100 40 L140 40 L140 80 L180 80'/%3E%3Cpath d='M20 140 L60 140 L60 180'/%3E%3Cpath d='M100 100 L100 140 L140 140'/%3E%3Cpath d='M160 20 L160 60'/%3E%3Cpath d='M20 100 L40 100 L40 120'/%3E%3Cpath d='M180 120 L180 160 L140 160'/%3E%3Cpath d='M80 180 L80 160 L100 160'/%3E%3Cpath d='M60 20 L60 35'/%3E%3Cpath d='M120 60 L120 85'/%3E%3C/g%3E%3Cg fill='%2357c8ff'%3E%3Ccircle cx='20' cy='60' r='1.6'/%3E%3Ccircle cx='60' cy='100' r='1.6'/%3E%3Ccircle cx='140' cy='80' r='1.6'/%3E%3Ccircle cx='60' cy='180' r='1.6'/%3E%3Ccircle cx='140' cy='140' r='1.6'/%3E%3Ccircle cx='160' cy='60' r='1.6'/%3E%3Ccircle cx='40' cy='120' r='1.6'/%3E%3Ccircle cx='180' cy='160' r='1.6'/%3E%3Ccircle cx='100' cy='160' r='1.6'/%3E%3Ccircle cx='20' cy='20' r='1.6'/%3E%3Ccircle cx='100' cy='20' r='1.6'/%3E%3Ccircle cx='20' cy='140' r='1.6'/%3E%3Ccircle cx='100' cy='100' r='1.6'/%3E%3Ccircle cx='160' cy='20' r='1.6'/%3E%3Ccircle cx='20' cy='100' r='1.6'/%3E%3Ccircle cx='180' cy='120' r='1.6'/%3E%3Ccircle cx='60' cy='35' r='1.6'/%3E%3Ccircle cx='120' cy='85' r='1.6'/%3E%3Ccircle cx='80' cy='180' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:280px 280px;
+  opacity:.14;
+  pointer-events:none;
+  mask-image:radial-gradient(ellipse 90% 80% at 50% 30%, #000 30%, transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 30%, #000 30%, transparent 100%);
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+
+.header{position:sticky;top:0;z-index:100;background:rgba(4,16,31,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-row{height:76px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand-logo{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:0 0 46px;border:1px solid rgba(90,170,235,.55);box-shadow:0 0 0 3px rgba(46,163,255,.10),0 0 20px rgba(46,163,255,.25)}
+.brand-text{display:flex;flex-direction:column;line-height:1.05}
+.brand-name{font-size:18px;font-weight:800;letter-spacing:-.3px;color:#fff}
+.brand-sub{font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--muted);margin-top:4px}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{font-size:14px;font-weight:600;color:#c7dbec;position:relative;padding:6px 0;transition:.2s}
+.nav a:hover{color:#fff}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:.25s}
+.nav a:hover::after{transform:scaleX(1)}
+.head-right{display:flex;align-items:center;gap:14px;margin-left:auto}
+.phone{text-align:right;line-height:1.2}
+.phone b{display:block;font-size:14px;color:#fff;font-weight:700}
+.phone small{display:block;font-size:10px;color:var(--muted);margin-top:2px}
+.burger{display:none;background:transparent;border:0;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:#fff;border-radius:3px;margin:5px 0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 22px;font-weight:700;font-size:14px;border:1px solid transparent;transition:.2s;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,#2ea3ff,#168cff);color:#fff;box-shadow:0 8px 22px rgba(22,140,255,.35)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(22,140,255,.5)}
+.btn-ghost{border-color:var(--line-strong);background:rgba(46,163,255,.06);color:#eaf5ff}
+.btn-ghost:hover{background:rgba(46,163,255,.14);border-color:var(--blue)}
+
+.hero{padding:70px 0 80px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.hero-logo{width:120px;height:120px;border-radius:50%;object-fit:cover;border:1px solid rgba(90,170,235,.6);box-shadow:0 0 0 6px rgba(46,163,255,.08),0 20px 45px rgba(0,60,120,.5);margin-bottom:22px}
+.eyebrow{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase;padding:7px 14px;border:1px solid var(--line-strong);border-radius:999px;background:rgba(46,163,255,.07);margin-bottom:18px}
+.hero h1{font-size:clamp(38px,5vw,60px);line-height:1.05;letter-spacing:-1.8px;margin:0 0 18px;font-weight:800;color:#fff}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,#57c8ff,#168cff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:17px;color:var(--muted);max-width:560px;margin:0 0 26px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.messengers{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.messengers a{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:rgba(15,50,85,.6);border:1px solid var(--line);font-size:12px;font-weight:700;color:#d6e8f5;transition:.2s}
+.messengers a:hover{border-color:var(--blue);background:rgba(46,163,255,.12);color:#fff}
+.messengers i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff}
+.tg{background:#2ea3ff}.wa{background:#22c55e}.mx{background:#7c5cff}.call{background:#168cff}
+
+.hero-visual{height:420px;position:relative;display:grid;place-items:center}
+.hero-visual .ring{position:absolute;border-radius:50%;border:1px solid var(--line-strong);left:50%;top:50%;transform:translate(-50%,-50%)}
+.ring-1{width:340px;height:340px}
+.ring-2{width:440px;height:440px;border-color:rgba(90,170,235,.15)}
+.ring-3{width:250px;height:250px;border-color:rgba(46,163,255,.35)}
+.glass-card{position:relative;z-index:2;background:linear-gradient(145deg,rgba(20,60,100,.7),rgba(10,35,65,.7));border:1px solid var(--line-strong);border-radius:var(--radius-lg);padding:26px;width:280px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 24px 55px rgba(0,20,50,.55),inset 0 1px 0 rgba(255,255,255,.06);text-align:center}
+.glass-card .logo-in-card{width:70px;height:70px;border-radius:50%;object-fit:cover;margin:0 auto 14px;border:1px solid rgba(90,170,235,.6);box-shadow:0 0 22px rgba(46,163,255,.4)}
+.glass-card b{display:block;font-size:18px;color:#fff;font-weight:800;letter-spacing:-.3px}
+.glass-card small{display:block;font-size:11px;color:var(--cyan);letter-spacing:.2em;font-weight:700;margin-top:6px}
+.glass-card hr{border:0;height:1px;background:var(--line);margin:16px 0}
+.glass-card .row{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);padding:4px 0}
+.glass-card .row b{color:#fff;font-weight:700;font-size:13px}
+
+.section{padding:80px 0}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+.section-kicker{font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:10px}
+.section h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1;letter-spacing:-1.4px;margin:0;color:#fff;font-weight:800}
+.section-link{color:var(--cyan);font-size:13px;font-weight:700;transition:.2s}
+.section-link:hover{color:#fff}
+
+.service-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.service-card{background:linear-gradient(160deg,rgba(18,55,95,.7),rgba(8,28,52,.85));border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.25s;min-width:0}
+.service-card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,30,70,.5)}
+.service-image{background:#04101f;overflow:hidden;display:block}
+.service-image img{width:100%;height:auto;display:block}
+.service-body{padding:14px;display:flex;flex-direction:column;flex:1}
+.service-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto}
+.service-foot strong{font-size:16px;font-weight:800;color:#fff;white-space:nowrap}
+.choose{border:0;border-radius:999px;padding:9px 14px;background:linear-gradient(135deg,#2ea3ff,#168cff);color:#fff;font-size:11px;font-weight:800;white-space:nowrap;transition:.2s}
+.choose:hover{filter:brightness(1.1)}
+
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.about-art{height:340px;border-radius:var(--radius-lg);position:relative;overflow:hidden;background:radial-gradient(circle at 30% 30%, rgba(46,163,255,.35), transparent 55%),linear-gradient(145deg,#0e3560,#05182e);border:1px solid var(--line-strong);box-shadow:0 25px 55px rgba(0,20,50,.5);display:grid;place-items:center}
+.about-art .mark{font-size:44px;font-weight:800;letter-spacing:.1em;color:#5cc2ff;text-shadow:0 0 30px rgba(46,163,255,.6)}
+.about-art::before{content:"";position:absolute;inset:20px;border:1px solid var(--line);border-radius:16px}
+.about-copy p{color:var(--muted);font-size:16px;max-width:640px}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.benefit{display:flex;gap:12px;align-items:center;padding:14px;border-radius:var(--radius);background:rgba(15,50,85,.45);border:1px solid var(--line);transition:.2s}
+.benefit:hover{border-color:var(--blue)}
+.benefit b{flex:0 0 38px;width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:rgba(46,163,255,.15);color:var(--cyan);font-weight:800}
+.benefit strong{display:block;font-size:13px;color:#fff}
+.benefit small{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+
+.booking-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:center}
+.booking-copy p{color:var(--muted);max-width:480px;font-size:16px}
+.points{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.points span{padding:8px 12px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--line);background:rgba(15,50,85,.5);color:#cfe3f4}
+.booking-form{background:linear-gradient(160deg,rgba(15,50,85,.75),rgba(8,28,52,.85));border:1px solid var(--line-strong);border-radius:var(--radius-lg);padding:24px;display:grid;gap:12px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 25px 60px rgba(0,20,50,.5)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.booking-form label{font-size:11px;font-weight:700;color:#c7dbec}
+.booking-form input,.booking-form select,.booking-form textarea{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:12px;background:rgba(6,21,41,.6);color:#fff;padding:12px 14px;outline:none;transition:.2s;font-size:14px;-webkit-appearance:none;appearance:none}
+.booking-form input::placeholder,.booking-form textarea::placeholder{color:#6f8ba6}
+.booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(46,163,255,.15)}
+.booking-form textarea{resize:vertical}
+.booking-form select option{background:#071a30;color:#fff}
+.submit{border:0;border-radius:999px;padding:14px;background:linear-gradient(135deg,#2ea3ff,#168cff);color:#fff;font-weight:800;font-size:14px;transition:.2s;margin-top:4px;box-shadow:0 10px 26px rgba(22,140,255,.35)}
+.submit:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.status{font-size:12px;color:var(--cyan);font-weight:700;min-height:16px;text-align:center}
+.send-options{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.send-options a{border:1px solid var(--line-strong);border-radius:999px;padding:9px;text-align:center;font-size:11px;font-weight:700;color:#d6e8f5;transition:.2s}
+.send-options a:hover{background:rgba(46,163,255,.12);color:#fff}
+
+.reviews-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.reviews p{color:var(--muted);max-width:480px}
+.review-panel{display:grid;grid-template-columns:1.3fr .7fr;gap:14px}
+.review-card,.rating{background:rgba(15,50,85,.5);border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.stars{color:#ffbb33;letter-spacing:3px;font-size:14px}
+.review-card b{display:block;margin-top:10px;color:#fff}
+.review-card p{font-size:13px;color:var(--muted);margin:6px 0 0}
+.rating{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.rating strong{font-size:46px;line-height:1;color:#fff;font-weight:800}
+.rating span{font-size:24px;color:#ffbb33;margin-top:4px}
+.rating small{font-size:11px;color:var(--muted);margin-top:8px}
+.outline{display:inline-flex;margin-top:14px;border:1px solid var(--line-strong);border-radius:999px;padding:11px 18px;color:var(--cyan);font-size:12px;font-weight:700;transition:.2s}
+.outline:hover{background:rgba(46,163,255,.12);color:#fff;border-color:var(--blue)}
+
+.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 20px}
+.contact-card{background:rgba(15,50,85,.45);border:1px solid var(--line);border-radius:var(--radius);padding:18px;transition:.2s}
+.contact-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.contact-card span{display:block;color:var(--muted);font-size:11px;font-weight:700}
+.contact-card b{display:block;font-size:15px;color:#fff;margin:8px 0;word-break:break-word}
+.contact-card small{color:var(--cyan);font-size:11px;font-weight:700}
+.address{background:linear-gradient(135deg,rgba(15,50,85,.7),rgba(8,28,52,.85));border:1px solid var(--line-strong);border-radius:var(--radius-lg);padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.address b{display:block;font-size:15px;color:#fff}
+.address span{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+
+footer{border-top:1px solid var(--line);padding:28px 0;margin-top:20px;background:rgba(4,16,31,.6)}
+.footer-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-brand .brand-logo{width:38px;height:38px;flex-basis:38px;box-shadow:none}
+.footer-brand strong{display:block;font-size:15px;color:#fff}
+.footer-brand small{display:block;font-size:8px;letter-spacing:.2em;color:var(--muted);margin-top:3px}
+.footer-row p{font-size:12px;color:var(--muted);margin:0;flex:1}
+.copy{font-size:11px;color:#6f8ba6}
+
+@media(max-width:1050px){
+  .service-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .nav{gap:16px}
+  .phone{display:none}
+  .hero-grid{grid-template-columns:1fr .8fr;gap:30px}
+  .hero-visual{transform:scale(.9)}
+}
+@media(max-width:760px){
+  html{scroll-padding-top:74px}
+  .container{width:calc(100% - 28px)}
+  .header-row{height:68px;gap:10px}
+  .brand-logo{width:40px;height:40px;flex-basis:40px}
+  .brand-name{font-size:15px}
+  .brand-sub{font-size:7px;letter-spacing:.18em}
+  .nav{position:absolute;left:14px;right:14px;top:68px;margin:0;display:none;flex-direction:column;gap:0;background:rgba(9,35,62,.98);border:1px solid var(--line-strong);border-radius:0 0 16px 16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.5);backdrop-filter:blur(14px)}
+  .nav.open{display:flex}
+  .nav a{padding:12px;border-radius:10px}
+  .nav a:hover{background:rgba(46,163,255,.1)}
+  .nav a::after{display:none}
+  .head-right{margin-left:auto;gap:8px}
+  .head-right .btn{padding:9px 14px;font-size:12px}
+  .burger{display:block}
+  .hero{padding:40px 0 50px}
+  .hero-grid{display:block}
+  .hero-logo{width:90px;height:90px;margin-bottom:16px}
+  .hero h1{font-size:clamp(34px,10vw,44px);letter-spacing:-1.2px}
+  .hero p{font-size:15px;margin-bottom:22px}
+  .hero-actions{display:grid;grid-template-columns:1fr;gap:10px}
+  .btn{width:100%}
+  .messengers{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .messengers a{justify-content:center;font-size:11px;padding:9px 6px}
+  .hero-visual{height:280px;transform:none;margin-top:16px}
+  .ring-1{width:220px;height:220px}
+  .ring-2{width:280px;height:280px}
+  .ring-3{width:160px;height:160px}
+  .glass-card{padding:20px;width:230px}
+  .glass-card .logo-in-card{width:56px;height:56px;margin-bottom:10px}
+  .glass-card b{font-size:16px}
+  .section{padding:56px 0}
+  .section-head{flex-direction:column;align-items:flex-start;margin-bottom:22px}
+  .section h2{font-size:26px}
+  .service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .service-body{padding:11px}
+  .service-foot{flex-direction:column;align-items:stretch;gap:8px}
+  .service-foot strong{align-self:flex-start;font-size:15px}
+  .choose{width:100%;padding:10px 6px;font-size:11px}
+  .about-grid,.booking-grid,.reviews-grid{grid-template-columns:1fr;gap:28px}
+  .about-art{height:240px}
+  .about-art .mark{font-size:32px}
+  .benefits{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .booking-form{padding:18px}
+  .send-options{grid-template-columns:1fr 1fr}
+  .review-panel{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .contact-card{padding:14px}
+  .address{flex-direction:column;align-items:stretch}
+  .address .btn{width:100%}
+  .footer-row{flex-direction:column;align-items:flex-start;gap:12px}
+  .footer-row p{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-row">
+    <a class="brand" href="#top">
+      <img class="brand-logo" src="assets/logo.jpeg" alt="В ремонте">
+      <span class="brand-text">
+        <strong class="brand-name">В ремонте</strong>
+        <small class="brand-sub">СЕРВИСНЫЙ ЦЕНТР</small>
+      </span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#services">Услуги</a>
+      <a href="#about">О нас</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="head-right">
+      <a class="phone" href="tel:+79603770401">
+        <b>+7 960 377-04-01</b>
+        <small>с 9:00 до 18:00</small>
+      </a>
+      <a class="btn btn-primary" href="#booking">Записаться</a>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <img class="hero-logo" src="assets/logo.jpeg" alt="В ремонте — сервисный центр">
+        <span class="eyebrow">Сервисный центр · Ульяновск</span>
+        <h1>Ваша техника<br><em>в надёжных руках</em></h1>
+        <p>Профессиональный ремонт смартфонов, ноутбуков, планшетов, компьютеров и телевизоров.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#booking">Записаться на ремонт</a>
+          <a class="btn btn-ghost" href="#services">Смотреть услуги</a>
+        </div>
+        <div class="messengers">
+          <a href="https://t.me/vrem0nte73" target="_blank" rel="noopener"><i class="tg">➤</i>Telegram</a>
+          <a href="https://wa.me/79603770401" target="_blank" rel="noopener"><i class="wa">◉</i>WhatsApp</a>
+          <a href="https://max.ru/u/f9LHodD0cOLJM7UGSwoC0gC2DwIsdtHzFPerVHsVwztNlty7xy1NuvFMH_o" target="_blank" rel="noopener"><i class="mx">M</i>MAX</a>
+          <a href="tel:+79603770401"><i class="call">✆</i>Позвонить</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="glass-card">
+          <img class="logo-in-card" src="assets/logo.jpeg" alt="">
+          <b>В ремонте</b>
+          <small>СЕРВИС · УЛЬЯНОВСК</small>
+          <hr>
+          <div class="row"><span>Ремонт</span><b>5 категорий</b></div>
+          <div class="row"><span>Гарантия</span><b>на работы</b></div>
+          <div class="row"><span>Диагностика</span><b>от 1 ₽</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Наши услуги</div>
+          <h2>Популярные услуги</h2>
+        </div>
+        <a class="section-link" href="#booking">Записаться на ремонт →</a>
+      </div>
+      <div class="service-grid">
+        <article class="service-card"><div class="service-image"><img src="assets/diagnostics.jpg" alt="Диагностика"></div><div class="service-body"><div class="service-foot"><strong>1 ₽</strong><button class="choose" data-service="Диагностика">Выбрать →</button></div></div></article>
+        <article class="service-card"><div class="service-image"><img src="assets/display.jpg" alt="Замена дисплея"></div><div class="service-body"><div class="service-foot"><strong>2 500 ₽</strong><button class="choose" data-service="Замена дисплея">Выбрать →</button></div></div></article>
+        <article class="service-card"><div class="service-image"><img src="assets/battery.jpg" alt="Замена аккумулятора"></div><div class="service-body"><div class="service-foot"><strong>2 000 ₽</strong><button class="choose" data-service="Замена аккумулятора">Выбрать →</button></div></div></article>
+        <article class="service-card"><div class="service-image"><img src="assets/back-cover.jpg" alt="Замена задней крышки"></div><div class="service-body"><div class="service-foot"><strong>2 500 ₽</strong><button class="choose" data-service="Замена задней крышки">Выбрать →</button></div></div></article>
+        <article class="service-card"><div class="service-image"><img src="assets/case.jpg" alt="Замена корпуса"></div><div class="service-body"><div class="service-foot"><strong>3 500 ₽</strong><button class="choose" data-service="Замена корпуса">Выбрать →</button></div></div></article>
+        <article class="service-card"><div class="service-image"><img src="assets/maintenance.jpg" alt="Обслуживание ноутбука"></div><div class="service-body"><div class="service-foot"><strong>2 500 ₽</strong><button class="choose" data-service="Техническое обслуживание ноутбука">Выбрать →</button></div></div></article>
+        <article class="service-card"><div class="service-image"><img src="assets/windows.jpg" alt="Установка Windows"></div><div class="service-body"><div class="service-foot"><strong>3 000 ₽</strong><button class="choose" data-service="Установка и настройка Windows">Выбрать →</button></div></div></article>
+        <article class="service-card"><div class="service-image"><img src="assets/assembly.jpg" alt="Сборка компьютера"></div><div class="service-body"><div class="service-foot"><strong>5 000 ₽</strong><button class="choose" data-service="Сборка компьютера">Выбрать →</button></div></div></article>
+        <article class="service-card"><div class="service-image"><img src="assets/component.jpg" alt="Компонентный ремонт"></div><div class="service-body"><div class="service-foot"><strong>4 000 ₽</strong><button class="choose" data-service="Компонентный ремонт">Выбрать →</button></div></div></article>
+        <article class="service-card"><div class="service-image"><img src="assets/tv.jpg" alt="Ремонт телевизоров"></div><div class="service-body"><div class="service-foot"><strong>4 000 ₽</strong><button class="choose" data-service="Ремонт телевизоров">Выбрать →</button></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="about-art"><div class="mark">В РЕМОНТЕ</div></div>
+      <div class="about-copy">
+        <div class="section-kicker">О нас</div>
+        <h2>Ремонтируем технику аккуратно и по делу</h2>
+        <p>Используем современное оборудование, качественные запчасти и обязательно проверяем устройство после ремонта.</p>
+        <div class="benefits">
+          <div class="benefit"><b>◉</b><span><strong>Профессиональная диагностика</strong><small>Быстро найдём причину</small></span></div>
+          <div class="benefit"><b>✓</b><span><strong>Гарантия</strong><small>На выполненные работы</small></span></div>
+          <div class="benefit"><b>₽</b><span><strong>Честная стоимость</strong><small>Без скрытых доплат</small></span></div>
+          <div class="benefit"><b>⚙</b><span><strong>Современное оборудование</strong><small>Качественный ремонт</small></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="booking">
+    <div class="container booking-grid">
+      <div class="booking-copy">
+        <span class="eyebrow">Запись на ремонт</span>
+        <h2>Оставьте заявку</h2>
+        <p>Мы свяжемся с вами для уточнения деталей и подберём оптимальное решение.</p>
+        <div class="points">
+          <span>⚡ Быстрый ответ</span>
+          <span>◉ Конфиденциальность</span>
+        </div>
+      </div>
+      <form class="booking-form" id="bookingForm">
+        <div class="form-row">
+          <label>Ваше имя<input name="name" required placeholder="Как к вам обращаться"></label>
+          <label>Телефон<input name="phone" required type="tel" placeholder="+7 (___) ___-__-__"></label>
+        </div>
+        <div class="form-row">
+          <label>Устройство<input name="device" placeholder="Например, iPhone 13"></label>
+          <label>Услуга
+            <select name="service" id="serviceSelect">
+              <option value="">Выберите услугу</option>
+              <option>Диагностика</option>
+              <option>Замена дисплея</option>
+              <option>Замена аккумулятора</option>
+              <option>Замена корпуса</option>
+              <option>Замена задней крышки</option>
+              <option>Техническое обслуживание ноутбука</option>
+              <option>Установка и настройка Windows</option>
+              <option>Сборка компьютера</option>
+              <option>Компонентный ремонт</option>
+              <option>Ремонт телевизоров</option>
+            </select>
+          </label>
+        </div>
+        <label>Опишите проблему<textarea name="message" rows="3" placeholder="Кратко опишите неисправность"></textarea></label>
+        <button class="submit" type="submit">Отправить заявку</button>
+        <div class="status" id="status"></div>
+        <div class="send-options" id="sendOptions" hidden>
+          <a id="tgSend" target="_blank" rel="noopener">Telegram</a>
+          <a id="waSend" target="_blank" rel="noopener">WhatsApp</a>
+          <a id="maxSend" target="_blank" rel="noopener" href="https://max.ru/u/f9LHodD0cOLJM7UGSwoC0gC2DwIsdtHzFPerVHsVwztNlty7xy1NuvFMH_o">MAX</a>
+          <a href="tel:+79603770401">Позвонить</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section" id="reviews">
+    <div class="container reviews-grid">
+      <div>
+        <div class="section-kicker">Отзывы</div>
+        <h2>Нам доверяют</h2>
+        <p>Реальные отзывы клиентов и актуальная оценка — в карточке «В ремонте» на Яндекс Картах.</p>
+        <a class="outline" href="https://yandex.ru/maps/org/v_remonte/215544685448?si=kfxfmxy4a92x7ndt2ddp28ya6w" target="_blank" rel="noopener">Смотреть все отзывы →</a>
+      </div>
+      <div class="review-panel">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <b>Яндекс Карты</b>
+          <p>Откройте карточку сервиса, чтобы увидеть свежие отзывы клиентов.</p>
+        </div>
+        <div class="rating">
+          <strong>5.0</strong>
+          <span>★</span>
+          <small>Рейтинг в Яндекс Картах</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacts">
+    <div class="container">
+      <div class="section-kicker">Контакты</div>
+      <h2>Мы на связи</h2>
+      <div class="contact-grid">
+        <a class="contact-card" href="tel:+79603770401"><span>Телефон</span><b>+7 960 377-04-01</b><small>Позвонить →</small></a>
+        <a class="contact-card" href="https://t.me/vrem0nte73" target="_blank" rel="noopener"><span>Telegram</span><b>@vrem0nte73</b><small>Написать →</small></a>
+        <a class="contact-card" href="https://wa.me/79603770401" target="_blank" rel="noopener"><span>WhatsApp</span><b>+7 960 377-04-01</b><small>Написать →</small></a>
+        <a class="contact-card" href="https://max.ru/u/f9LHodD0cOLJM7UGSwoC0gC2DwIsdtHzFPerVHsVwztNlty7xy1NuvFMH_o" target="_blank" rel="noopener"><span>MAX</span><b>MAX</b><small>Открыть →</small></a>
+      </div>
+      <div class="address">
+        <div><b>Ипподромная ул., 4Б, Ульяновск</b><span>Пн–Пт · 09:00–18:00</span></div>
+        <a class="btn btn-primary" href="https://yandex.ru/maps/org/v_remonte/215544685448?si=kfxfmxy4a92x7ndt2ddp28ya6w" target="_blank" rel="noopener">Открыть на карте</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <a class="footer-brand" href="#top">
+      <img class="brand-logo" src="assets/logo.jpeg" alt="">
+      <span><strong>В ремонте</strong><small>СЕРВИСНЫЙ ЦЕНТР</small></span>
+    </a>
+    <p>Ремонт телефонов, ноутбуков, планшетов, компьютеров и телевизоров.</p>
+    <span class="copy">© 2026 В ремонте</span>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav'),burger=document.getElementById('burger');
+burger.addEventListener('click',()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false')});
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}));
+document.querySelectorAll('.choose').forEach(btn=>btn.addEventListener('click',()=>{const s=document.getElementById('serviceSelect');if(s)s.value=btn.dataset.service;document.getElementById('booking').scrollIntoView({behavior:'smooth',block:'start'})}));
+document.getElementById('bookingForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=new FormData(e.currentTarget);
+  const text='Заявка в «В ремонте»\nИмя: '+f.get('name')+'\nТелефон: '+f.get('phone')+'\nУстройство: '+(f.get('device')||'не указано')+'\nУслуга: '+(f.get('service')||'не указана')+'\nПроблема: '+(f.get('message')||'не указана');
+  const enc=encodeURIComponent(text);
+  document.getElementById('tgSend').href='https://t.me/vrem0nte73?text='+enc;
+  document.getElementById('waSend').href='https://wa.me/79603770401?text='+enc;
+  document.getElementById('sendOptions').hidden=false;
+  document.getElementById('status').textContent='После записи с вами свяжется менеджер для уточнения информации! Хорошего дня)';
+});
+</script>
+</body>
+</html>
