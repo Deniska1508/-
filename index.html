@@ -35,7 +35,6 @@ body{
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
-/* Технологичный фон: градиент + свечения */
 body::before{
   content:"";
   position:fixed;inset:0;z-index:-2;
@@ -44,7 +43,6 @@ body::before{
     radial-gradient(800px 600px at 100% 100%, rgba(23,140,255,.15), transparent 60%),
     linear-gradient(160deg,#04101f 0%,#071a30 45%,#04101f 100%);
 }
-/* Печатная плата — дорожки */
 body::after{
   content:"";
   position:fixed;inset:0;z-index:-1;
@@ -157,10 +155,19 @@ button{cursor:pointer}
 .booking-form select option{background:#071a30;color:#fff}
 .submit{border:0;border-radius:999px;padding:14px;background:linear-gradient(135deg,#2ea3ff,#168cff);color:#fff;font-weight:800;font-size:14px;transition:.2s;margin-top:4px;box-shadow:0 10px 26px rgba(22,140,255,.35)}
 .submit:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.submit:disabled{transform:none;filter:none;opacity:.6;cursor:default}
 .status{font-size:12px;color:var(--cyan);font-weight:700;min-height:16px;text-align:center}
-.send-options{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.send-options a{border:1px solid var(--line-strong);border-radius:999px;padding:9px;text-align:center;font-size:11px;font-weight:700;color:#d6e8f5;transition:.2s}
-.send-options a:hover{background:rgba(46,163,255,.12);color:#fff}
+
+.send-options{display:block;border-top:1px dashed var(--line-strong);padding-top:16px;margin-top:6px}
+.send-title{font-size:13px;font-weight:800;color:#fff;text-align:center;margin-bottom:14px;line-height:1.4}
+.send-buttons{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.send-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:13px 10px;border-radius:999px;font-size:13px;font-weight:800;border:1px solid var(--line-strong);background:rgba(15,50,85,.6);color:#eaf5ff;transition:.2s;text-align:center}
+.send-btn:hover{transform:translateY(-1px);border-color:var(--blue)}
+.send-tg{background:linear-gradient(135deg,#2ea3ff,#168cff);border-color:transparent;color:#fff;box-shadow:0 8px 22px rgba(22,140,255,.35)}
+.send-wa{background:linear-gradient(135deg,#25d366,#128c4a);border-color:transparent;color:#fff;box-shadow:0 8px 22px rgba(18,140,74,.3)}
+.send-max{background:linear-gradient(135deg,#7c5cff,#5a3bd6);border-color:transparent;color:#fff}
+.send-call{background:linear-gradient(135deg,#57c8ff,#168cff);border-color:transparent;color:#fff}
+.send-hint{font-size:11px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.4}
 
 .reviews-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
 .reviews p{color:var(--muted);max-width:480px}
@@ -247,7 +254,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;margin-top:20px;backgroun
   .benefits{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   .booking-form{padding:18px}
-  .send-options{grid-template-columns:1fr 1fr}
+  .send-buttons{grid-template-columns:1fr}
   .review-panel{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr 1fr;gap:10px}
   .contact-card{padding:14px}
@@ -323,164 +330,4 @@ footer{border-top:1px solid var(--line);padding:28px 0;margin-top:20px;backgroun
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="section-kicker">Наши услуги</div>
-          <h2>Популярные услуги</h2>
-        </div>
-        <a class="section-link" href="#booking">Записаться на ремонт →</a>
-      </div>
-      <div class="service-grid">
-        <article class="service-card"><div class="service-image"><img src="assets/diagnostics.jpg" alt="Диагностика"></div><div class="service-body"><div class="service-foot"><strong>1 ₽</strong><button class="choose" data-service="Диагностика">Выбрать →</button></div></div></article>
-        <article class="service-card"><div class="service-image"><img src="assets/display.jpg" alt="Замена дисплея"></div><div class="service-body"><div class="service-foot"><strong>2 500 ₽</strong><button class="choose" data-service="Замена дисплея">Выбрать →</button></div></div></article>
-        <article class="service-card"><div class="service-image"><img src="assets/battery.jpg" alt="Замена аккумулятора"></div><div class="service-body"><div class="service-foot"><strong>2 000 ₽</strong><button class="choose" data-service="Замена аккумулятора">Выбрать →</button></div></div></article>
-        <article class="service-card"><div class="service-image"><img src="assets/back-cover.jpg" alt="Замена задней крышки"></div><div class="service-body"><div class="service-foot"><strong>2 500 ₽</strong><button class="choose" data-service="Замена задней крышки">Выбрать →</button></div></div></article>
-        <article class="service-card"><div class="service-image"><img src="assets/case.jpg" alt="Замена корпуса"></div><div class="service-body"><div class="service-foot"><strong>3 500 ₽</strong><button class="choose" data-service="Замена корпуса">Выбрать →</button></div></div></article>
-        <article class="service-card"><div class="service-image"><img src="assets/maintenance.jpg" alt="Обслуживание ноутбука"></div><div class="service-body"><div class="service-foot"><strong>2 500 ₽</strong><button class="choose" data-service="Техническое обслуживание ноутбука">Выбрать →</button></div></div></article>
-        <article class="service-card"><div class="service-image"><img src="assets/windows.jpg" alt="Установка Windows"></div><div class="service-body"><div class="service-foot"><strong>3 000 ₽</strong><button class="choose" data-service="Установка и настройка Windows">Выбрать →</button></div></div></article>
-        <article class="service-card"><div class="service-image"><img src="assets/assembly.jpg" alt="Сборка компьютера"></div><div class="service-body"><div class="service-foot"><strong>5 000 ₽</strong><button class="choose" data-service="Сборка компьютера">Выбрать →</button></div></div></article>
-        <article class="service-card"><div class="service-image"><img src="assets/component.jpg" alt="Компонентный ремонт"></div><div class="service-body"><div class="service-foot"><strong>4 000 ₽</strong><button class="choose" data-service="Компонентный ремонт">Выбрать →</button></div></div></article>
-        <article class="service-card"><div class="service-image"><img src="assets/tv.jpg" alt="Ремонт телевизоров"></div><div class="service-body"><div class="service-foot"><strong>4 000 ₽</strong><button class="choose" data-service="Ремонт телевизоров">Выбрать →</button></div></div></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about">
-    <div class="container about-grid">
-      <div class="about-art"><div class="mark">В РЕМОНТЕ</div></div>
-      <div class="about-copy">
-        <div class="section-kicker">О нас</div>
-        <h2>Ремонтируем технику аккуратно и по делу</h2>
-        <p>Используем современное оборудование, качественные запчасти и обязательно проверяем устройство после ремонта.</p>
-        <div class="benefits">
-          <div class="benefit"><b>◉</b><span><strong>Профессиональная диагностика</strong><small>Быстро найдём причину</small></span></div>
-          <div class="benefit"><b>✓</b><span><strong>Гарантия</strong><small>На выполненные работы</small></span></div>
-          <div class="benefit"><b>₽</b><span><strong>Честная стоимость</strong><small>Без скрытых доплат</small></span></div>
-          <div class="benefit"><b>⚙</b><span><strong>Современное оборудование</strong><small>Качественный ремонт</small></span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="booking">
-    <div class="container booking-grid">
-      <div class="booking-copy">
-        <span class="eyebrow">Запись на ремонт</span>
-        <h2>Оставьте заявку</h2>
-        <p>Мы свяжемся с вами для уточнения деталей и подберём оптимальное решение.</p>
-        <div class="points">
-          <span>⚡ Быстрый ответ</span>
-          <span>◉ Конфиденциальность</span>
-        </div>
-      </div>
-      <form class="booking-form" id="bookingForm">
-        <div class="form-row">
-          <label>Ваше имя<input name="name" required placeholder="Как к вам обращаться"></label>
-          <label>Телефон<input name="phone" required type="tel" placeholder="+7 (___) ___-__-__"></label>
-        </div>
-        <div class="form-row">
-          <label>Устройство<input name="device" placeholder="Например, iPhone 13"></label>
-          <label>Услуга
-            <select name="service" id="serviceSelect">
-              <option value="">Выберите услугу</option>
-              <option>Диагностика</option>
-              <option>Замена дисплея</option>
-              <option>Замена аккумулятора</option>
-              <option>Замена корпуса</option>
-              <option>Замена задней крышки</option>
-              <option>Техническое обслуживание ноутбука</option>
-              <option>Установка и настройка Windows</option>
-              <option>Сборка компьютера</option>
-              <option>Компонентный ремонт</option>
-              <option>Ремонт телевизоров</option>
-            </select>
-          </label>
-        </div>
-        <label>Опишите проблему<textarea name="message" rows="3" placeholder="Кратко опишите неисправность"></textarea></label>
-        <button class="submit" type="submit">Отправить заявку</button>
-        <div class="status" id="status"></div>
-        <div class="send-options" id="sendOptions" hidden>
-          <a id="tgSend" target="_blank" rel="noopener">Telegram</a>
-          <a id="waSend" target="_blank" rel="noopener">WhatsApp</a>
-          <a id="maxSend" target="_blank" rel="noopener" href="https://max.ru/u/f9LHodD0cOLJM7UGSwoC0gC2DwIsdtHzFPerVHsVwztNlty7xy1NuvFMH_o">MAX</a>
-          <a href="tel:+79603770401">Позвонить</a>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <section class="section" id="reviews">
-    <div class="container reviews-grid">
-      <div>
-        <div class="section-kicker">Отзывы</div>
-        <h2>Нам доверяют</h2>
-        <p>Реальные отзывы клиентов и актуальная оценка — в карточке «В ремонте» на Яндекс Картах.</p>
-        <a class="outline" href="https://yandex.ru/maps/org/v_remonte/215544685448?si=kfxfmxy4a92x7ndt2ddp28ya6w" target="_blank" rel="noopener">Смотреть все отзывы →</a>
-      </div>
-      <div class="review-panel">
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <b>Яндекс Карты</b>
-          <p>Откройте карточку сервиса, чтобы увидеть свежие отзывы клиентов.</p>
-        </div>
-        <div class="rating">
-          <strong>5.0</strong>
-          <span>★</span>
-          <small>Рейтинг в Яндекс Картах</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contacts">
-    <div class="container">
-      <div class="section-kicker">Контакты</div>
-      <h2>Мы на связи</h2>
-      <div class="contact-grid">
-        <a class="contact-card" href="tel:+79603770401"><span>Телефон</span><b>+7 960 377-04-01</b><small>Позвонить →</small></a>
-        <a class="contact-card" href="https://t.me/vrem0nte73" target="_blank" rel="noopener"><span>Telegram</span><b>@vrem0nte73</b><small>Написать →</small></a>
-        <a class="contact-card" href="https://wa.me/79603770401" target="_blank" rel="noopener"><span>WhatsApp</span><b>+7 960 377-04-01</b><small>Написать →</small></a>
-        <a class="contact-card" href="https://max.ru/u/f9LHodD0cOLJM7UGSwoC0gC2DwIsdtHzFPerVHsVwztNlty7xy1NuvFMH_o" target="_blank" rel="noopener"><span>MAX</span><b>MAX</b><small>Открыть →</small></a>
-      </div>
-      <div class="address">
-        <div><b>Ипподромная ул., 4Б, Ульяновск</b><span>Пн–Пт · 09:00–18:00</span></div>
-        <a class="btn btn-primary" href="https://yandex.ru/maps/org/v_remonte/215544685448?si=kfxfmxy4a92x7ndt2ddp28ya6w" target="_blank" rel="noopener">Открыть на карте</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="container footer-row">
-    <a class="footer-brand" href="#top">
-      <img class="brand-logo" src="assets/logo.jpeg" alt="">
-      <span><strong>В ремонте</strong><small>СЕРВИСНЫЙ ЦЕНТР</small></span>
-    </a>
-    <p>Ремонт телефонов, ноутбуков, планшетов, компьютеров и телевизоров.</p>
-    <span class="copy">© 2026 В ремонте</span>
-  </div>
-</footer>
-
-<script>
-const nav=document.getElementById('nav'),burger=document.getElementById('burger');
-burger.addEventListener('click',()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false')});
-document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}));
-document.querySelectorAll('.choose').forEach(btn=>btn.addEventListener('click',()=>{const s=document.getElementById('serviceSelect');if(s)s.value=btn.dataset.service;document.getElementById('booking').scrollIntoView({behavior:'smooth',block:'start'})}));
-document.getElementById('bookingForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const f=new FormData(e.currentTarget);
-  const text='Заявка в «В ремонте»\nИмя: '+f.get('name')+'\nТелефон: '+f.get('phone')+'\nУстройство: '+(f.get('device')||'не указано')+'\nУслуга: '+(f.get('service')||'не указана')+'\nПроблема: '+(f.get('message')||'не указана');
-  const enc=encodeURIComponent(text);
-  document.getElementById('tgSend').href='https://t.me/vrem0nte73?text='+enc;
-  document.getElementById('waSend').href='https://wa.me/79603770401?text='+enc;
-  document.getElementById('sendOptions').hidden=false;
-  document.getElementById('status').textContent='После записи с вами свяжется менеджер для уточнения информации! Хорошего дня)';
-});
-</script>
-</body>
-</html>
+  </section
